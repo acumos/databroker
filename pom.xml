@@ -10,7 +10,7 @@
 	<modules>
 		<!-- Child modules do NOT name this parent. -->
 		<module>commons</module>
-		<!--<module>zipbroker</module>-->		
+		<module>zipbroker</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
