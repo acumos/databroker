@@ -1,0 +1,282 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d240599e_4f60e836",
+        "filename": "zipbroker/mvnw.cmd",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Please remove this dos-only BAT file",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "153b022f_be231c39",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Where is the docker plugin config?",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7639fc29_55300db3",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/controller/ZipBrokerController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "203bb627_5edb80da",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/controller/ZipBrokerStartUp.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remote @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ee3800a_cc0fca4b",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/model/JsonRequestMapper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8e4cca9_866dcda9",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/model/JsonRequestMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b5e0961_f204d567",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/model/JsonRequestPosition.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "004e5ad0_4bdd15d3",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/model/ZipReaderResult.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf296550_bcd167d5",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/service/ZipBrokerFileService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8e7a397_f9530ec9",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerFileServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d5bbcab_cea8638d",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerFileServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Log exceptions like this:\n\nlog.error(EELF, \"getZipFile failed\", e);\n\nIt\u0027s important to give the method name",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "414fc7c7_a3c93a9f",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/util/EELFLoggerDelegate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove ECOMP Portal SK license",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 66
+      },
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bf329a8_e0ed5aa5",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/util/JsonProcessor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "See comment about how to log exceptions",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "033a221a_7a2bf080",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/controller/ZipBrokerFileController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d53327b_c6df8c64",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Remove @author",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cdb13b6_de07d123",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-21T23:16:49Z",
+      "side": 1,
+      "message": "Should be private",
+      "revId": "954a80e66a923c7a9688fb3404ffe2b507fbba68",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
