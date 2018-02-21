@@ -63,6 +63,6 @@ public class ProtoRecordGenerator  {
 		logger.debug("message=" + m.toString());
 		byteArrayList.add(m.toByteArray());
 	   }
-	   return null;
+	   return byteArrayList;
 	}	
 }
