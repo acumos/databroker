@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b3fe48f_a80db6f4",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerFileServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T01:21:24Z",
+      "side": 1,
+      "message": "Please fix class name",
+      "revId": "d6cd105668da1eaee0f1ca8e1fc2be4ab6774e3d",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95d892fe_9fefc266",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/controller/ZipBrokerFileController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T01:21:24Z",
+      "side": 1,
+      "message": "Please remove @author",
+      "revId": "d6cd105668da1eaee0f1ca8e1fc2be4ab6774e3d",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc5a8999_4ff7a8d5",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T01:21:24Z",
+      "side": 1,
+      "message": "Pls remove @author",
+      "revId": "d6cd105668da1eaee0f1ca8e1fc2be4ab6774e3d",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc69668e_f773c1ab",
+        "filename": "zipbroker/src/test/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T01:21:24Z",
+      "side": 1,
+      "message": "Probably want to name this ZipBrokerServiceImplTest to avoid confusion with the class in src/main/java",
+      "revId": "d6cd105668da1eaee0f1ca8e1fc2be4ab6774e3d",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
