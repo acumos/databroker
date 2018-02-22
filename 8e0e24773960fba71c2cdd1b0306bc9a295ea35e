@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b27ff2_80103281",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T12:39:53Z",
+      "side": 1,
+      "message": "this is not correct, it will fail, please change to:\n\njava -Xms128m -Xmx512m -Djava.security.egd\u003dfile:/dev/./urandom -jar ${project.artifactId}-${project.version}.${project.packaging}",
+      "revId": "8e0e24773960fba71c2cdd1b0306bc9a295ea35e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
