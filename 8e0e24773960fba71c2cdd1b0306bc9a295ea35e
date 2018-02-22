@@ -16,6 +16,23 @@
       "revId": "8e0e24773960fba71c2cdd1b0306bc9a295ea35e",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcc199de_88883212",
+        "filename": "zipbroker/src/main/java/org/acumos/databroker/zipbroker/service/impl/ZipBrokerFileServiceImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T12:41:39Z",
+      "side": 1,
+      "message": "This catches then discards the exception, without providing any indication to the caller of failure.  Suggest allowing the exception to be thrown so the caller can do the right thing.",
+      "revId": "8e0e24773960fba71c2cdd1b0306bc9a295ea35e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     }
   ]
 }
