@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68b8e713_9e5c151e",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T10:27:18Z",
+      "side": 1,
+      "message": "Please correct name",
+      "revId": "b3704f1cc7a703c51a3b0d1083a308c2eeaea436",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ede41497_77168bb8",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T10:27:18Z",
+      "side": 1,
+      "message": "pls fix indentation",
+      "revId": "b3704f1cc7a703c51a3b0d1083a308c2eeaea436",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4c3719_45dce7f9",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T10:27:18Z",
+      "side": 1,
+      "message": "Please insert memory limits: -Xms128m -Xmx512m",
+      "revId": "b3704f1cc7a703c51a3b0d1083a308c2eeaea436",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13af08b1_0173d965",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-22T10:27:18Z",
+      "side": 1,
+      "message": "Remove this distribution management section - you will not deploy a jar from this project.  Add skip-deploy config also.",
+      "revId": "b3704f1cc7a703c51a3b0d1083a308c2eeaea436",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
