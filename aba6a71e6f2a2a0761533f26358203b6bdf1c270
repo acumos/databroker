@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18e9eae2_6a6ce2cf",
+        "filename": "pom.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T15:11:49Z",
+      "side": 1,
+      "message": "Please change this name to Databroker",
+      "revId": "aba6a71e6f2a2a0761533f26358203b6bdf1c270",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1fe4f46_20c0c759",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T15:11:49Z",
+      "side": 1,
+      "message": "Please add deploy skip plugin config here.  You don\u0027t want to push this enormous jar.",
+      "revId": "aba6a71e6f2a2a0761533f26358203b6bdf1c270",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "012e0583_fe764d13",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T15:11:49Z",
+      "side": 1,
+      "message": "upgrade this to version 0.7.9",
+      "revId": "aba6a71e6f2a2a0761533f26358203b6bdf1c270",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
