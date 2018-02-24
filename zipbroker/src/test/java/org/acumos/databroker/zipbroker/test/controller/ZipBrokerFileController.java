@@ -30,7 +30,7 @@ import java.util.Map;
 import org.acumos.databroker.commons.Column;
 import org.acumos.databroker.commons.ProtoRecordGenerator;
 import org.acumos.databroker.commons.ResultRows;
-import org.acumos.databroker.zipbroker.controller.ZipBrokerStartUp;
+import org.acumos.databroker.zipbroker.ZipBrokerStartUp;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapper;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapping;
 import org.acumos.databroker.zipbroker.model.JsonRequestPosition;
