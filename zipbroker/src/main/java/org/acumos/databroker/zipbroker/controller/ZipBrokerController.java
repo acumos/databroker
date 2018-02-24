@@ -31,34 +31,34 @@ import org.acumos.databroker.commons.ResultRows;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapper;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapping;
 import org.acumos.databroker.zipbroker.model.JsonRequestPosition;
+import org.acumos.databroker.zipbroker.model.ZipBrokerConfigDB;
 import org.acumos.databroker.zipbroker.model.ZipReaderResult;
 import org.acumos.databroker.zipbroker.service.ZipBrokerFileService;
 import org.acumos.databroker.zipbroker.util.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-@RestController
+@Controller
 @RequestMapping(path="/file")
 public class ZipBrokerController {
 		
-	
 	@Autowired
 	ZipBrokerFileService zipBrokerFileService;
 	
-    private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerController.class);
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerController.class);
 
-	@RequestMapping(value ={"/getFiles{jsonUrl}","{jsonScript}","{jsonMapping}, {jsonPosition}"} ,method=RequestMethod.GET)
+	/*@RequestMapping(path="/getFiles" ,method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> zipBrokerProcessor(@RequestParam(value = "jsonUrl") String jsonUrl, @RequestParam(value = "jsonScript") String jsonScript, @RequestParam(value = "jsonMapping") String jsonMapping, @RequestParam(value = "jsonPosition") String jsonPosition) {
-    	log.debug(EELFLoggerDelegate.debugLogger, "In zipBrokerProcessor method");
+		log.debug(EELFLoggerDelegate.debugLogger, "In zipBrokerProcessor method");
     	ObjectMapper mapper = new ObjectMapper();
     	List<byte[]> byteList = new ArrayList<byte[]>();
     	
@@ -96,7 +96,73 @@ public class ZipBrokerController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
-	}
+	} */
 
 	
+	@RequestMapping(path = "/configDB", method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<?> configureEnvironment(@RequestParam(value = "jsonUrl") String jsonUrl,
+			@RequestParam(value = "jsonScript") String jsonScript,
+			@RequestParam(value = "jsonMapping") String jsonMapping,
+			@RequestParam(value = "jsonPosition") String jsonPosition) {
+		log.debug(EELFLoggerDelegate.debugLogger, "In configureEnvironment method");
+		ObjectMapper mapper = new ObjectMapper();
+		List<byte[]> byteList = new ArrayList<byte[]>();
+		try {
+			ZipBrokerConfigDB zipBrokerConfigDB = ZipBrokerConfigDB.getInstance();
+			JsonRequestMapper jsonRequestMapper = zipBrokerFileService.getJsonRequestMapperObject(
+					mapper.readValue(jsonUrl, HashMap.class), mapper.readValue(jsonScript, HashMap.class),
+					mapper.readValue(jsonMapping, HashMap.class), mapper.readValue(jsonPosition, HashMap.class));
+			zipBrokerConfigDB.setJsonRequestMapper(jsonRequestMapper);
+		} catch (Exception e) {
+			log.error(EELFLoggerDelegate.errorLogger, "IO exception occoured while retrieving file from stream", e);
+		}
+		return new ResponseEntity<>(byteList, HttpStatus.OK);
+	}
+	
+	
+	
+	@RequestMapping(path = "/pullData", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<?> getData() {
+		log.debug(EELFLoggerDelegate.debugLogger, "In getData method");
+		List<byte[]> byteList = new ArrayList<byte[]>();
+		List<ZipReaderResult> zipReaderResultList = new ArrayList<ZipReaderResult>();
+		try {
+			ZipBrokerConfigDB zipBrokerConfigDB = ZipBrokerConfigDB.getInstance();
+			JsonRequestMapper jsonRequestMapper = zipBrokerConfigDB.getJsonRequestMapper();
+			Map<String, String> jsonRequestUrl = jsonRequestMapper.getJsonRequestUrl();
+			Map<String, String> jsonRequestScript = jsonRequestMapper.getJsonRequestScript();
+			Map<String, String> jsonRequestMapping = jsonRequestMapper.getJsonRequestMapping();
+			Map<String, String> jsonRequestPosition = jsonRequestMapper.getJsonRequestPosition();
+
+			if (jsonRequestUrl.get("url") != null || !jsonRequestUrl.get("url").isEmpty()) {
+				zipReaderResultList = zipBrokerFileService.getZipFile(jsonRequestUrl.get("url"),
+						jsonRequestScript.get("pattern"), jsonRequestMapping.get("MIME_TYPE"),
+						jsonRequestMapping.get("CONTENT"));
+			} else {
+				throw new IllegalArgumentException("The 'url' parameter must not be null or empty");
+			}
+
+			ResultRows resultRows = new ResultRows();
+			List<Map<String, Column>> rows = new ArrayList<Map<String, Column>>();
+			ProtoRecordGenerator protoRecordGenerator = new ProtoRecordGenerator();
+			JsonRequestMapping jsonReqMapping = zipBrokerFileService.getMimeAndContentFromMapping(jsonRequestMapping);
+			JsonRequestPosition jsonReqPosition = zipBrokerFileService
+					.getMimeAndContentFromPosition(jsonRequestPosition);
+
+			zipBrokerFileService.generateZipReaderResult(zipReaderResultList, rows, jsonReqMapping.getMimeTypeColumn(),
+					jsonReqMapping.getContentColumn(), jsonReqPosition.getMimeTypePosition(),
+					jsonReqPosition.getContentPosition());
+			resultRows.setRows(rows);
+			byteList = protoRecordGenerator.doConvert(resultRows, "zipbrokermsg");
+		} catch (Exception e) {
+			log.error(EELFLoggerDelegate.errorLogger, "IO exception occoured while retrieving file from stream", e);
+		}
+		if (byteList != null) {
+			return new ResponseEntity<>(byteList, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

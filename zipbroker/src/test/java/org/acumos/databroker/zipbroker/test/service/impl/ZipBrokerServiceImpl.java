@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.runner.RunWith;
-import org.acumos.databroker.zipbroker.controller.ZipBrokerStartUp;
+import org.acumos.databroker.zipbroker.ZipBrokerStartUp;
 import org.acumos.databroker.zipbroker.model.ZipReaderResult;
 import org.acumos.databroker.zipbroker.service.ZipBrokerFileService;
 import org.acumos.databroker.zipbroker.util.EELFLoggerDelegate;
