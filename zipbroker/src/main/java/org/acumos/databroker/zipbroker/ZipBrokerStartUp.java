@@ -18,7 +18,7 @@
  * ===============LICENSE_END=========================================================
  */
 
-package org.acumos.databroker.zipbroker.controller;
+package org.acumos.databroker.zipbroker;
 
 import org.acumos.databroker.zipbroker.service.ZipBrokerFileService;
 import org.springframework.boot.SpringApplication;
