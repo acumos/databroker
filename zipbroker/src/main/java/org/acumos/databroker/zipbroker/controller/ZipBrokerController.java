@@ -36,7 +36,6 @@ import org.acumos.databroker.zipbroker.model.ZipReaderResult;
 import org.acumos.databroker.zipbroker.service.ZipBrokerFileService;
 import org.acumos.databroker.zipbroker.util.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -106,7 +105,7 @@ public class ZipBrokerController {
 			@RequestParam(value = "jsonScript") String jsonScript,
 			@RequestParam(value = "jsonMapping") String jsonMapping,
 			@RequestParam(value = "jsonPosition") String jsonPosition) {
-		log.debug(EELFLoggerDelegate.debugLogger, "In configureDatabase method");
+		log.debug(EELFLoggerDelegate.debugLogger, "In configureEnvironment method");
 		ObjectMapper mapper = new ObjectMapper();
 		List<byte[]> byteList = new ArrayList<byte[]>();
 		try {
@@ -125,7 +124,8 @@ public class ZipBrokerController {
 	
 	@RequestMapping(path = "/pullData", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<?> configureEnvironment() {
+	public ResponseEntity<?> getData() {
+		log.debug(EELFLoggerDelegate.debugLogger, "In getData method");
 		ObjectMapper mapper = new ObjectMapper();
 		List<byte[]> byteList = new ArrayList<byte[]>();
 		List<ZipReaderResult> zipReaderResultList = new ArrayList<ZipReaderResult>();
