@@ -47,7 +47,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller
-@RequestMapping(path="/file")
+@RequestMapping(path="/")
 public class ZipBrokerController {
 		
 	@Autowired
