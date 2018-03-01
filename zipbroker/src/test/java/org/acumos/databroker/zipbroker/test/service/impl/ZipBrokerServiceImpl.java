@@ -51,7 +51,7 @@ private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBr
 		List<ZipReaderResult> zipReaderResultList=service.getZipFile("http://www.imageemotion.org/testImages_artphoto.zip", "amu*", "MIME_TYPE", "CONTENT");
 		
 		//test number of file return for requested pattern
-		assertEquals(zipReaderResultList.size(), 36);
+		assertEquals(zipReaderResultList.size(), 101);
 		
 		// test size of file 
 		for(ZipReaderResult result :zipReaderResultList) {            	
@@ -59,6 +59,6 @@ private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBr
 			content = result.getContent();            	
  		}
 		//test last file size
-		assertEquals(content.length, 600030);
+		assertEquals(content.length, 599508);
 	}
 }

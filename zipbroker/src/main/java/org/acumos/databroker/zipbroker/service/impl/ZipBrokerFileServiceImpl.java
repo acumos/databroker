@@ -28,7 +28,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,9 +40,6 @@ import javax.activation.MimetypesFileTypeMap;
 import javax.imageio.ImageIO;
 
 import org.acumos.databroker.commons.Column;
-import org.acumos.databroker.commons.ProtoRecordGenerator;
-import org.acumos.databroker.commons.ResultRows;
-import org.acumos.databroker.zipbroker.controller.ZipBrokerController;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapper;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapping;
 import org.acumos.databroker.zipbroker.model.JsonRequestPosition;
@@ -95,7 +91,6 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 
 			zipentry = zipinputstream.getNextEntry();
 			String mType = getMIMEType(zipentry.getName());
-			int i = 0;
 			while (zipentry != null) {
 				int n;
 				FileOutputStream fileoutputstream;
@@ -116,7 +111,6 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 					}
 					fileoutputstream.close();
 				} else if (Pattern.compile(filePattern.split("'\\*")[0]).matcher(newFile.getName()).lookingAt()) {
-					++i;
 					fileoutputstream = new FileOutputStream(newFile);
 
 					while ((n = zipinputstream.read(buf, 0, 1024)) > -1) {
@@ -135,10 +129,6 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 				}
 				zipinputstream.closeEntry();
 				zipentry = zipinputstream.getNextEntry();
-
-				if (i == 36) {
-					break;
-				}
 			}
 
 			zipinputstream.close();
