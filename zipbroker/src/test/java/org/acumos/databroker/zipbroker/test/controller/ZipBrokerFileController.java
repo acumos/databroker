@@ -70,10 +70,10 @@ public class ZipBrokerFileController {
 		String jsonMapping = "{\"MIME_TYPE\":\"mime_type\",\"CONTENT\":\"content\"}";
 		String jsonPosition = "{\"MIME_TYPE\":\"1\", \"CONTENT\":\"2\"}";
 		JsonRequestMapper jsonRequestMapper = service.getJsonRequestMapperObject(
-				mapper.readValue(jsonUrl, HashMap.class), mapper.readValue(jsonScript, HashMap.class),
+				mapper.readValue(jsonUrl, HashMap.class),
 				mapper.readValue(jsonMapping, HashMap.class), mapper.readValue(jsonPosition, HashMap.class));
 		Map<String, String> jsonRequestUrl = jsonRequestMapper.getJsonRequestUrl();
-		Map<String, String> jsonRequestScript = jsonRequestMapper.getJsonRequestScript();
+		Map<String, String> jsonRequestScript =  mapper.readValue(jsonScript, HashMap.class);
 		Map<String, String> jsonRequestMapping = jsonRequestMapper.getJsonRequestMapping();
 		Map<String, String> jsonRequestPosition = jsonRequestMapper.getJsonRequestPosition();
 

@@ -31,14 +31,17 @@ import org.acumos.databroker.commons.ResultRows;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapper;
 import org.acumos.databroker.zipbroker.model.JsonRequestMapping;
 import org.acumos.databroker.zipbroker.model.JsonRequestPosition;
+import org.acumos.databroker.zipbroker.model.JsonRequestScript;
 import org.acumos.databroker.zipbroker.model.ZipBrokerConfigDB;
 import org.acumos.databroker.zipbroker.model.ZipReaderResult;
 import org.acumos.databroker.zipbroker.service.ZipBrokerFileService;
 import org.acumos.databroker.zipbroker.util.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -102,7 +105,6 @@ public class ZipBrokerController {
 	@RequestMapping(path = "/configDB", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<?> configureEnvironment(@RequestParam(value = "jsonUrl") String jsonUrl,
-			@RequestParam(value = "jsonScript") String jsonScript,
 			@RequestParam(value = "jsonMapping") String jsonMapping,
 			@RequestParam(value = "jsonPosition") String jsonPosition) {
 		log.debug(EELFLoggerDelegate.debugLogger, "In configureEnvironment method");
@@ -111,8 +113,9 @@ public class ZipBrokerController {
 		try {
 			ZipBrokerConfigDB zipBrokerConfigDB = ZipBrokerConfigDB.getInstance();
 			JsonRequestMapper jsonRequestMapper = zipBrokerFileService.getJsonRequestMapperObject(
-					mapper.readValue(jsonUrl, HashMap.class), mapper.readValue(jsonScript, HashMap.class),
-					mapper.readValue(jsonMapping, HashMap.class), mapper.readValue(jsonPosition, HashMap.class));
+					mapper.readValue(jsonUrl, HashMap.class), 
+					mapper.readValue(jsonMapping, HashMap.class), 
+					mapper.readValue(jsonPosition, HashMap.class));
 			zipBrokerConfigDB.setJsonRequestMapper(jsonRequestMapper);
 		} catch (Exception e) {
 			log.error(EELFLoggerDelegate.errorLogger, "IO exception occoured while retrieving file from stream", e);
@@ -122,9 +125,9 @@ public class ZipBrokerController {
 	
 	
 	
-	@RequestMapping(path = "/pullData", method = RequestMethod.GET)
+	@RequestMapping(path = "/pullData", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<?> getData() {
+	public ResponseEntity<?> getData(@RequestBody JsonRequestScript jsonScript) {
 		log.debug(EELFLoggerDelegate.debugLogger, "In getData method");
 		List<byte[]> byteList = new ArrayList<byte[]>();
 		List<ZipReaderResult> zipReaderResultList = new ArrayList<ZipReaderResult>();
@@ -132,13 +135,14 @@ public class ZipBrokerController {
 			ZipBrokerConfigDB zipBrokerConfigDB = ZipBrokerConfigDB.getInstance();
 			JsonRequestMapper jsonRequestMapper = zipBrokerConfigDB.getJsonRequestMapper();
 			Map<String, String> jsonRequestUrl = jsonRequestMapper.getJsonRequestUrl();
-			Map<String, String> jsonRequestScript = jsonRequestMapper.getJsonRequestScript();
+			Map<String, String> jsonReqScript = new HashMap<String, String>();
+			jsonReqScript.put("pattern", jsonScript.getPattern());
 			Map<String, String> jsonRequestMapping = jsonRequestMapper.getJsonRequestMapping();
 			Map<String, String> jsonRequestPosition = jsonRequestMapper.getJsonRequestPosition();
 
 			if (jsonRequestUrl.get("url") != null || !jsonRequestUrl.get("url").isEmpty()) {
 				zipReaderResultList = zipBrokerFileService.getZipFile(jsonRequestUrl.get("url"),
-						jsonRequestScript.get("pattern"), jsonRequestMapping.get("MIME_TYPE"),
+						jsonReqScript.get("pattern"), jsonRequestMapping.get("MIME_TYPE"),
 						jsonRequestMapping.get("CONTENT"));
 			} else {
 				throw new IllegalArgumentException("The 'url' parameter must not be null or empty");

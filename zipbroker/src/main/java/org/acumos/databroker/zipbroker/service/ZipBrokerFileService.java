@@ -44,7 +44,7 @@ public interface ZipBrokerFileService {
 	public JsonRequestPosition getMimeAndContentFromPosition(Map<String, String> jsonRequestPosition);
 
 	public JsonRequestMapper getJsonRequestMapperObject(Map<String, String> jsonRequestUrl,
-			Map<String, String> jsonRequestScript, Map<String, String> jsonRequestMapping,
+			Map<String, String> jsonRequestMapping,
 			Map<String, String> jsonRequestPosition);
 
 	public String getMIMEType(String fileName);

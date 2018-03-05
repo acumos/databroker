@@ -207,12 +207,11 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 
 	@Override
 	public JsonRequestMapper getJsonRequestMapperObject(Map<String, String> jsonRequestUrl,
-			Map<String, String> jsonRequestScript, Map<String, String> jsonRequestMapping,
+			Map<String, String> jsonRequestMapping,
 			Map<String, String> jsonRequestPosition) {
 		JsonRequestMapper jsonRequestMapper = new JsonRequestMapper();
 		jsonRequestMapper.setJsonRequestUrl(jsonRequestUrl);
 		jsonRequestMapper.setJsonRequestMapping(jsonRequestMapping);
-		jsonRequestMapper.setJsonRequestScript(jsonRequestScript);
 		jsonRequestMapper.setJsonRequestPosition(jsonRequestPosition);
 		return jsonRequestMapper;
 	}
