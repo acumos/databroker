@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98d1000b_db24f521",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T19:56:57Z",
+      "side": 1,
+      "message": "Why turn deploy back on?  Call me sometime and I\u0027ll explain",
+      "revId": "051845c49e7216063ca7cc1a9f670384600b57f5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
