@@ -32,6 +32,6 @@ This repository holds projects that together comprise the Marketplace Backend fo
 
 ## Contribution guidelines
 
-* Writing tests
+* Writing tests cases
 * Code review
 * Other guidelines
