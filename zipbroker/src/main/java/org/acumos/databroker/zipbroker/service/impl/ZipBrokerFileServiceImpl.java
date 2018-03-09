@@ -24,6 +24,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -70,12 +71,13 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 			URL url = new URL(newUrl);
 			in = url.openStream();
 			lst = getUnzipFileFromInputStream(in, new File(filePath), false, pattern, mimeType, content);
-			in.close();
 		} catch (IOException e) {
 			log.error(EELFLoggerDelegate.errorLogger, "getZipFile failed", e);
 			throw e;
+		} finally {
+			if (in != null)
+				in.close();
 		}
-
 		return lst;
 	}
 
@@ -86,58 +88,63 @@ public class ZipBrokerFileServiceImpl implements ZipBrokerFileService {
 		try {
 			byte[] buf = new byte[1024];
 			ZipInputStream zipinputstream = null;
-			ZipEntry zipentry;
+			ZipEntry zipentry = null;
 			zipinputstream = new ZipInputStream(inputStream);
-
 			zipentry = zipinputstream.getNextEntry();
 			String mType = getMIMEType(zipentry.getName());
 			while (zipentry != null) {
 				int n;
-				FileOutputStream fileoutputstream;
+				FileOutputStream fileoutputstream = null;
 				File newFile = new File(destination, zipentry.getName());
 				if (zipentry.isDirectory()) {
 					newFile.mkdirs();
 					zipentry = zipinputstream.getNextEntry();
 					continue;
 				}
-
 				if (newFile.exists() && overwrite) {
 					newFile.delete();
 				}
 				if (getMIMEType(zipentry.getName()).equals(mimeType)) {
-					fileoutputstream = new FileOutputStream(newFile);
-					while ((n = zipinputstream.read(buf, 0, 1024)) > -1) {
-						fileoutputstream.write(buf, 0, n);
+					try {
+						fileoutputstream = new FileOutputStream(newFile);
+						while ((n = zipinputstream.read(buf, 0, 1024)) > -1) {
+							fileoutputstream.write(buf, 0, n);
+						}
+					} catch (FileNotFoundException e) {
+						log.error(EELFLoggerDelegate.errorLogger, "getUnzipFileFromInputStream failed:: FileNotFound", e);
+						throw new IllegalStateException("Can't unzip input stream", e);
+					} finally {
+						fileoutputstream.close();
 					}
-					fileoutputstream.close();
 				} else if (Pattern.compile(filePattern.split("'\\*")[0]).matcher(newFile.getName()).lookingAt()) {
-					fileoutputstream = new FileOutputStream(newFile);
-
-					while ((n = zipinputstream.read(buf, 0, 1024)) > -1) {
-						fileoutputstream.write(buf, 0, n);
+					try {
+						fileoutputstream = new FileOutputStream(newFile);
+						while ((n = zipinputstream.read(buf, 0, 1024)) > -1) {
+							fileoutputstream.write(buf, 0, n);
+						}
+						BufferedImage bufferedImage = ImageIO.read(newFile);
+						WritableRaster raster = bufferedImage.getRaster();
+						DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+						ZipReaderResult zipReaderResult = new ZipReaderResult();
+						zipReaderResult.setContent(data.getData());
+						zipReaderResult.setMime(mType);
+						lst.add(zipReaderResult);
+					} catch (FileNotFoundException e) {
+						log.error(EELFLoggerDelegate.errorLogger, "getUnzipFileFromInputStream failed:: FileNotFound", e);
+						throw new IllegalStateException("Can't unzip input stream", e);
+					} finally {
+						fileoutputstream.close();
 					}
-					BufferedImage bufferedImage = ImageIO.read(newFile);
-
-					// get DataBufferBytes from Raster
-					WritableRaster raster = bufferedImage.getRaster();
-					DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-					ZipReaderResult zipReaderResult = new ZipReaderResult();
-					zipReaderResult.setContent(data.getData());
-					zipReaderResult.setMime(mType);
-					lst.add(zipReaderResult);
-					fileoutputstream.close();
 				}
 				zipinputstream.closeEntry();
 				zipentry = zipinputstream.getNextEntry();
 			}
-
 			zipinputstream.close();
-		} catch (Exception e) {
+		} catch (IOException e) {
 			log.error(EELFLoggerDelegate.errorLogger, "getUnzipFileFromInputStream failed", e);
 			throw new IllegalStateException("Can't unzip input stream", e);
 		}
 		return lst;
-
 	}
 
 	private List<ZipReaderResult> ZipReader(String mtype, byte[] buf) {

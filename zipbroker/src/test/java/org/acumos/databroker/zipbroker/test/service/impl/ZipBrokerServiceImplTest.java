@@ -37,9 +37,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ZipBrokerStartUp.class)
-public class ZipBrokerServiceImpl {
+public class ZipBrokerServiceImplTest {
 	
-private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerServiceImpl.class);
+private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerServiceImplTest.class);
 	
     @Autowired
     ZipBrokerFileService service;

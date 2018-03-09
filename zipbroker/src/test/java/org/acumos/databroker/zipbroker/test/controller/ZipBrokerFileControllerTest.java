@@ -47,7 +47,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ZipBrokerStartUp.class)
-public class ZipBrokerFileController {
+public class ZipBrokerFileControllerTest {
 
 	ObjectMapper mapper = new ObjectMapper();
 	List<byte[]> byteList = new ArrayList<byte[]>();
@@ -57,7 +57,7 @@ public class ZipBrokerFileController {
 	Map<String, String> jsonRequestPosition = null;
 	List<ZipReaderResult> zipReaderResultList = new ArrayList<ZipReaderResult>();
 	
-	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerFileController.class);
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerFileControllerTest.class);
 	
 	@Autowired
 	ZipBrokerFileService service;

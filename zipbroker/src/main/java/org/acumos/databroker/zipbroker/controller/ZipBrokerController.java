@@ -58,50 +58,6 @@ public class ZipBrokerController {
 	
 	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ZipBrokerController.class);
 
-	/*@RequestMapping(path="/getFiles" ,method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<?> zipBrokerProcessor(@RequestParam(value = "jsonUrl") String jsonUrl, @RequestParam(value = "jsonScript") String jsonScript, @RequestParam(value = "jsonMapping") String jsonMapping, @RequestParam(value = "jsonPosition") String jsonPosition) {
-		log.debug(EELFLoggerDelegate.debugLogger, "In zipBrokerProcessor method");
-    	ObjectMapper mapper = new ObjectMapper();
-    	List<byte[]> byteList = new ArrayList<byte[]>();
-    	
-    	List<ZipReaderResult>  zipReaderResultList = new ArrayList<ZipReaderResult>();
-        try {
-        	JsonRequestMapper jsonRequestMapper=zipBrokerFileService.getJsonRequestMapperObject(mapper.readValue(jsonUrl, HashMap.class), mapper.readValue(jsonScript, HashMap.class), mapper.readValue(jsonMapping, HashMap.class), mapper.readValue(jsonPosition, HashMap.class));
-        	Map<String,String> jsonRequestUrl = jsonRequestMapper.getJsonRequestUrl();
-        	Map<String,String> jsonRequestScript = jsonRequestMapper.getJsonRequestScript();
-        	Map<String,String> jsonRequestMapping = jsonRequestMapper.getJsonRequestMapping();
-        	Map<String,String> jsonRequestPosition = jsonRequestMapper.getJsonRequestPosition();
-        	                       
-            if(jsonRequestUrl.get("url")!=null || !jsonRequestUrl.get("url").isEmpty()) {
-            	zipReaderResultList = zipBrokerFileService.getZipFile(jsonRequestUrl.get("url"),jsonRequestScript.get("pattern"),jsonRequestMapping.get("MIME_TYPE"),jsonRequestMapping.get("CONTENT"));
-            }else{
-            	throw new IllegalArgumentException("The 'url' parameter must not be null or empty");
-            }
-            
-            ResultRows resultRows = new ResultRows();
-			List<Map<String, Column>> rows = new ArrayList<Map<String, Column>>();
-			ProtoRecordGenerator protoRecordGenerator = new ProtoRecordGenerator();
-			JsonRequestMapping jsonReqMapping=zipBrokerFileService.getMimeAndContentFromMapping(jsonRequestMapping);
-			JsonRequestPosition jsonReqPosition=zipBrokerFileService.getMimeAndContentFromPosition(jsonRequestPosition);                   	
-        	            
-        	zipBrokerFileService.generateZipReaderResult(zipReaderResultList, rows, jsonReqMapping.getMimeTypeColumn(), jsonReqMapping.getContentColumn(), jsonReqPosition.getMimeTypePosition(),
-        			jsonReqPosition.getContentPosition());   
-            resultRows.setRows(rows);
-            byteList = protoRecordGenerator.doConvert(resultRows, "zipbrokermsg");
-        } catch (Exception e) {
-        	log.error(EELFLoggerDelegate.errorLogger, "IO exception occoured while retrieving file from stream", e);
-        
-        }
-		if (byteList != null) {
-			return new ResponseEntity<>(byteList, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-
-		}
-	} */
-
-	
 	@RequestMapping(path = "/configDB", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<?> configureEnvironment(@RequestParam(value = "jsonUrl") String jsonUrl,
