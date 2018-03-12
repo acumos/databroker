@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c6024f89_38f00f16",
+        "filename": "zipbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 51
+      },
+      "writtenOn": "2018-03-12T19:35:30Z",
+      "side": 1,
+      "message": "what is the desire here ? to deploy or to skip deployment? If skip is being set to false, then the comment at line 237 should change too. I do not have enough knowledge on this to say skip or not but I can advise to keep the comments in the file up-to-date",
+      "revId": "051845c49e7216063ca7cc1a9f670384600b57f5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98d1000b_db24f521",
         "filename": "zipbroker/pom.xml",
         "patchSetId": 1
