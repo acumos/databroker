@@ -19,10 +19,15 @@
 ===========
 Data Broker
 ===========
-    
+
+
 .. toctree::
-       :maxdepth: 2
-    
-       developer-guide.rst
-       user-guide.rst
-       release-notes.rst
+   :maxdepth: 2
+   :caption: Contents:
+
+   release-notes.rst
+   developer-guide.rst
+   user-guide.rst
+   
+
+* :ref:`search`
