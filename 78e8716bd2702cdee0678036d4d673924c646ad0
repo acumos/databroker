@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26aba241_8b16f2ed",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T00:10:15Z",
+      "side": 1,
+      "message": "Missing license header",
+      "revId": "78e8716bd2702cdee0678036d4d673924c646ad0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7774cbd_730d8b76",
+        "filename": "docs/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T00:10:15Z",
+      "side": 1,
+      "message": "Missing license header",
+      "revId": "78e8716bd2702cdee0678036d4d673924c646ad0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd3545a2_b470d0e0",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T00:10:15Z",
+      "side": 1,
+      "message": "Missing license header",
+      "revId": "78e8716bd2702cdee0678036d4d673924c646ad0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8a4fd5_fcb3027c",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T00:10:15Z",
+      "side": 1,
+      "message": "Missing license header\n\nThis is not a user guide, not even remotely.",
+      "revId": "78e8716bd2702cdee0678036d4d673924c646ad0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
