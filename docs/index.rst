@@ -20,11 +20,7 @@
 Data Broker
 ===========
     
-===========
-Data Broker
-===========
-    
-.. toctree::
+..toctree::
    :maxdepth: 2
    :caption: Contents:
 
