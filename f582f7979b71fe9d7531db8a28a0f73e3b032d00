@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d117d95_36607eb7",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-06-22T17:31:25Z",
+      "side": 1,
+      "message": "databroker is part of the Design Studio project; Kazi Farooqui is the acting PTL \nhttps://wiki.acumos.org/display/TSC/PTL+Nominations",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "f582f7979b71fe9d7531db8a28a0f73e3b032d00",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b156891_91cf6ee8",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-06-22T17:31:25Z",
+      "side": 1,
+      "message": "perhaps #acumos would be better",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "f582f7979b71fe9d7531db8a28a0f73e3b032d00",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce80d19a_1f7c4de0",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-06-22T17:31:25Z",
+      "side": 1,
+      "message": "databroker is part of the Design Studio project, which doesn\u0027t have meetings set up yet",
+      "revId": "f582f7979b71fe9d7531db8a28a0f73e3b032d00",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
