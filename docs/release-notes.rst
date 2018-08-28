@@ -20,6 +20,11 @@
 Data Broker Release Notes
 =========================
 
+Version 0.0.2-SNAPSHOT, 04 September 2018
+=====================================
+
+* Added new API endpoint to get Datasource info, right now it is just prototype (ACUMOS-1182)
+
 
 Version 0.0.1-SNAPSHOT, 09 March 2018
 =====================================
