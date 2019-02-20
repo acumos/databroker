@@ -260,7 +260,7 @@
 						<image>
 							<name>databroker-zipbroker:${project.version}</name>
 							<build>
-								  <from>frolvlad/alpine-oraclejdk8:slim</from>
+								  <from>openjdk:8-jre-slim</from>
 								<tags>
 								  <tag>${project.version}-b${build.number}</tag>
 								</tags>
