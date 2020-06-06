@@ -15,7 +15,7 @@ This repository holds projects that together comprise the Marketplace Backend fo
 
 1. Browse to your preferred directory and run below command:
 
-    git clone https://<userId>@gerrit.acumos.org/databroker.git
+    git clone --depth 1 https://<userId>@gerrit.acumos.org/databroker.git
 
 2. Build via this command:
    
